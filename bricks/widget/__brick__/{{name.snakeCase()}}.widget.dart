@@ -5,6 +5,6 @@ const {{name.pascalCase()}}({super.key});
 
 @override
 Widget build(BuildContext context) {
-return const Center(child: Text('Hello world'),);
+return const Center(child: Text('{{name.pascalCase()}} world'),);
 }
 }
