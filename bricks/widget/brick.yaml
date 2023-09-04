@@ -1,7 +1,7 @@
 name: widget
 description: A new brick created with the Mason CLI.
 
-version: 0.1.2
+version: 0.1.3
 
 
 environment:
@@ -14,3 +14,7 @@ vars:
     description: Your name
     default: SampleWidget
     prompt: What is your name?
+  use_state_management:
+    type: boolean
+    description: 상태관리를 사용하시겠습니까?
+    prompt: 상태관리를 사용하시겠습니까?
