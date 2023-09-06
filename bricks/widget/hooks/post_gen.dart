@@ -7,15 +7,15 @@ void run(HookContext context) async {
 }
 
 Future<void> _removeFiles(HookContext context, String name) async {
-  final removingFilesDone = context.logger.progress('removing $name files ...');
+  context.logger.progress('removing $name files ...');
   var dir = Directory('.');
   await dir.list().where((element) => element.toString().contains(name)).listen(
     (element) {
       element.delete();
     },
-    onDone: () => removingFilesDone('$name files removed'),
+    onDone: () => context.logger.progress('$name files removed'),
   );
-  removingFilesDone.complete();
+  context.logger.progress.complete();
 }
 
 Future<void> _AddPackages(HookContext context, String name) async {
