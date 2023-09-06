@@ -8,7 +8,9 @@ Future<void> run(HookContext context) async {
 
 Future<void> _removeFiles(HookContext context, String name) async {
   final msg = context.logger.progress('removing $name files ...');
+
   var dir = Directory('.');
+
   await dir
       .list(recursive: true)
       .where((element) => element.toString().contains(name))
@@ -17,7 +19,7 @@ Future<void> _removeFiles(HookContext context, String name) async {
       context.logger.info('${element.path}');
       element.delete();
     },
-    onDone: () => context.logger.progress('$name files removed'),
+    // onDone: () => context.logger.progress('$name files removed'),
   );
 }
 
