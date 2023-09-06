@@ -19,7 +19,7 @@ Future<void> _removeFiles(HookContext context, String name) async {
       context.logger.info('${element.path}');
       element.delete();
     },
-    // onDone: () => context.logger.progress('$name files removed'),
+    onDone: () => msg('$name files removed'),
   );
   msg.complete();
 }
