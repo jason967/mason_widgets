@@ -14,7 +14,7 @@ Future<void> _removeFiles(HookContext context, String name) async {
       .where((element) => element.toString().contains(name))
       .listen(
         (element) => element.delete(),
-        onDone: () => removingFilesDone('$name files removed'),
+        onDone: () => message('$name files removed'),
       );
   progress.complete();
 }
