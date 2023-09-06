@@ -2,8 +2,8 @@ import 'dart:io';
 import 'package:mason/mason.dart';
 
 void run(HookContext context) async {
-  _removeFiles(context, '.gitkeep');
-  _AddPackages(context, 'flutter_bloc');
+  await _removeFiles(context, '.gitkeep');
+  await _AddPackages(context, 'flutter_bloc');
 }
 
 Future<void> _removeFiles(HookContext context, String name) async {
