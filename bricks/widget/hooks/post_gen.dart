@@ -6,6 +6,5 @@ void run(HookContext context) async {
   await Process.run('flutter', ['pub', 'add', 'flutter_bloc']);
   await Process.run('flutter', ['pub', 'get']);
 
-  final generator = await MasonGenerator.fromBrick(Brick.)
   progress.complete();
 }
