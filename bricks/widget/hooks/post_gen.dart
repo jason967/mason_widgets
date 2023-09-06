@@ -1,15 +1,18 @@
 import 'dart:io';
 import 'package:mason/mason.dart';
 
-void run(HookContext context) async {
+Future<void> run(HookContext context) async {
   await _removeFiles(context, '.gitkeep');
   await _AddPackages(context, 'flutter_bloc');
 }
 
 Future<void> _removeFiles(HookContext context, String name) async {
-  context.logger.progress('removing $name files ...');
+  final msg = context.logger.progress('removing $name files ...');
   var dir = Directory('.');
-  await dir.list().where((element) => element.toString().contains(name)).listen(
+  await dir
+      .list(recursive: true)
+      .where((element) => element.toString().contains(name))
+      .listen(
     (element) {
       element.delete();
     },
