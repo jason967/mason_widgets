@@ -7,7 +7,8 @@ Future<void> run(HookContext context) async {
 }
 
 Future<void> _removeFiles(HookContext context, String name) async {
-  final msg = context.logger.progress('removing $name files ...');
+  final logger = context.logger;
+  logger.progress('removing $name files ...');
 
   var dir = Directory('.');
 
@@ -19,9 +20,9 @@ Future<void> _removeFiles(HookContext context, String name) async {
       context.logger.info('${element.path}');
       element.delete();
     },
-    onDone: () => context.logger.progress('$name files removed'),
+    onDone: () => logger.progress('$name files removed'),
   );
-  msg.complete();
+  logger.complete();
 }
 
 Future<void> _AddPackages(HookContext context, String name) async {
