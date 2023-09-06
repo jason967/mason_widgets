@@ -15,6 +15,7 @@ Future<void> _removeFiles(HookContext context, String name) async {
     },
     onDone: () => removingFilesDone('$name files removed'),
   );
+  removingFilesDone.complete();
 }
 
 Future<void> _AddPackages(HookContext context, String name) async {
